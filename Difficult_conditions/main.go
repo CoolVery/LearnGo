@@ -57,7 +57,7 @@ func main() {
 	// 		fmt.Println("Первый игрок победил")
 	// 	}
 	// }
-
+	//Задача 4
 	var sign string
 	var valueNum int
 	fmt.Scan(&sign, &valueNum)
