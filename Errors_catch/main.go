@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strings"
 )
 
 var (
@@ -51,7 +52,64 @@ func Divide(a, b int) (float64, error) {
 	return result, nil
 }
 
+var Balance = 0.0
+
+func topUpBalance(amount float64) error {
+	if amount <= 0 {
+		return errors.New("amount is incorrect")
+	}
+	Balance += amount
+	return nil
+
+}
+
+func chargeFromBalance(amount float64) error {
+	if amount <= 0 {
+		return errors.New("amount is incorrect")
+	}
+	Balance -= amount
+	return nil
+}
+
+func TopUpAndGetBalance(amount float64) (float64, error) {
+
+	errorValue := topUpBalance(amount)
+	if Balance < 0 {
+		return 0, errors.New("balance is incorrect")
+	}
+	if errorValue != nil {
+		Balance = 0
+	}
+	return Balance, errorValue
+}
+
+func ChargeFromAndGetBalance(amount float64) (float64, error) {
+	errorValue := chargeFromBalance(amount)
+	if Balance < 0 {
+		return 0, errors.New("balance is incorrect")
+	}
+	if errorValue != nil {
+		Balance = 0
+	}
+	return Balance, errorValue
+}
+
+func CheckLetters(text string) string {
+	countRuneE := strings.Count(text, "е")
+	if countRuneE == 0 {
+		return "Текст готов к публикации!"
+	}
+	result := fmt.Sprintf("Количество возможных ошибок: %d, перепроверьте текст.", countRuneE)
+	return result
+}
+
+func PrintComplexNumber(z complex64) {
+	realPart := real(z)
+	imagPart := imag(z)
+	fmt.Printf("Действительная часть: %.2f. Мнимая часть: %.2f", realPart, imagPart)
+}
+
 func main() {
 
-	fmt.Println(Divide(15, 2))
+	fmt.Println(CheckLetters("dsёевыё"))
 }
