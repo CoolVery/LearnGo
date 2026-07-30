@@ -1,19 +1,19 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 )
 
 func main() {
-    // Задача 1
+	// Задача 1
 	// var firstNum, secondNum, thirdNum float64
-    // fmt.Scan(&firstNum, &secondNum, &thirdNum)
-    // if firstNum == secondNum && secondNum == thirdNum && thirdNum == firstNum {
-    //     fmt.Println("Максимальное равенство")
-    // } else {
-    //     fmt.Println("Не равны")
-    // }
-	
+	// fmt.Scan(&firstNum, &secondNum, &thirdNum)
+	// if firstNum == secondNum && secondNum == thirdNum && thirdNum == firstNum {
+	//     fmt.Println("Максимальное равенство")
+	// } else {
+	//     fmt.Println("Не равны")
+	// }
+
 	// Задача 2
 	// var firstPassword, secondPassword string
 	// fmt.Scanln(&firstPassword)
@@ -29,11 +29,11 @@ func main() {
 	// } else {
 	// 	fmt.Println("Оба пароля ненадёжные")
 	// }
-    //Задача 3
+	//Задача 3
 	// var firstPlayer, secondPlayer string
 	// fmt.Scanln(&firstPlayer)
 	// fmt.Scanln(&secondPlayer)
-    // if firstPlayer == secondPlayer {
+	// if firstPlayer == secondPlayer {
 	// 	fmt.Println("Ничья")
 	// 	return
 	// }
@@ -61,10 +61,10 @@ func main() {
 	var sign string
 	var valueNum int
 	fmt.Scan(&sign, &valueNum)
-	
+
 	if valueNum == 0 {
 		fmt.Println("Стоит надеть куртку")
-        return
+		return
 	}
 	switch sign {
 	case "+":

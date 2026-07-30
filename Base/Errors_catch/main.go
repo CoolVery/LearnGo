@@ -111,5 +111,6 @@ func PrintComplexNumber(z complex64) {
 
 func main() {
 
-	fmt.Println(CheckLetters("dsёевыё"))
+	// fmt.Println(CheckLetters("dsёевыё"))
+
 }
