@@ -1,5 +1,5 @@
 package interfaces
 
 type Reader interface {
-	Read([]byte)
+	Read() []byte
 }
