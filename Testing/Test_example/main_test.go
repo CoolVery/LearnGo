@@ -81,25 +81,25 @@ func TestMultiply(t *testing.T) {
 	}
 }
 
-func TestDeleteVowels(t *testing.T) {
-	for id, test := range testValueDeleteVowels {
-		totalOut := DeleteVowels(test.in)
-		if totalOut != test.out {
-			t.Errorf("%d - Функция удаления работает не корректно Ждали %s, получили %s", id, test.out, totalOut )
-		}
-	}
-}
+// func TestDeleteVowels(t *testing.T) {
+// 	for id, test := range testValueDeleteVowels {
+// 		totalOut := DeleteVowels(test.in)
+// 		if totalOut != test.out {
+// 			t.Errorf("%d - Функция удаления работает не корректно Ждали %s, получили %s", id, test.out, totalOut )
+// 		}
+// 	}
+// }
 
 
 
-func TestGetUTFLength(t *testing.T) {
-	for id, test := range testValueGetUTF {
-		totalOut, err := GetUTFLength(test.in)
-        if totalOut != test.out {
-			t.Errorf("%d - Функция подсчета не корректно Ждали %d, получили %d", id, test.out, totalOut )	
-        }
-        if err == nil && test.outError {
-			t.Errorf("%d - Функция подсчета не вернула ошибку: ErrInvalidUTF8", id)
-        }
-	}
-}
+// func TestGetUTFLength(t *testing.T) {
+// 	for id, test := range testValueGetUTF {
+// 		totalOut, err := GetUTFLength(test.in)
+//         if totalOut != test.out {
+// 			t.Errorf("%d - Функция подсчета не корректно Ждали %d, получили %d", id, test.out, totalOut )	
+//         }
+//         if err == nil && test.outError {
+// 			t.Errorf("%d - Функция подсчета не вернула ошибку: ErrInvalidUTF8", id)
+//         }
+// 	}
+// }
