@@ -1,9 +1,9 @@
 package classes
 
 type Worker struct {
-	name string
-	position string
-	salary uint 
-	experience uint
+	Name string
+	Position string
+	Salary uint 
+	Experience uint
 }
 
