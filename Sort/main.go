@@ -19,14 +19,29 @@ func SortNames(names []string) {
 func SortAndMerge(left, right []int) []int {
 	slices.Sort(left)
 	slices.Sort(right)
-	maxLen := math.Max(float64(len(left)), float64(len(right)))
-	for i := 0; i < int(maxLen); i++ {
-		switch int(maxLen) == len(left) {
-		case true:
+	resultSlice := make([]int, 0)
+	i, j := 0, 0
 
+	for i < len(left) && j < len(right) {
+		if left[i] <= right[j] {
+			resultSlice = append(resultSlice, left[i])
+			i++
+		} else {
+			resultSlice = append(resultSlice, right[j])
+			j++
 		}
 	}
+
+	// Дописываем оставшиеся элементы, если они есть.
+	if i < len(left) {
+		resultSlice = append(resultSlice, left[i:]...)
+	}
+	if j < len(right) {
+		resultSlice = append(resultSlice, right[j:]...)
+	}
+
 	return nil
+
 }
 
 func main() {
