@@ -1,7 +1,6 @@
 package main
 
 import (
-	"math"
 	"slices"
 
 	"github.com/CoolVery/LearnGo.git/classes"
