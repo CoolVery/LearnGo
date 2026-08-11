@@ -8,7 +8,7 @@ type UpperWriter struct {
 
 func (upperWriter *UpperWriter) Write(text []byte) (int, error) {
 	stringText := strings.ToUpper(string(text))
-
-	upperWriter.UpperString = strings.ToUpper(text)
-	return nil
+	upperWriter.UpperString = stringText
+	
+	return len(upperWriter.UpperString), nil 
 }
