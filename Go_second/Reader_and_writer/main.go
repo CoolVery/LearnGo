@@ -2,8 +2,7 @@ package main
 
 import (
 	"io"
-	"strings"
-
+	"bytes"
 	. "github.com/CoolVery/LearnGo.git/classes"
 )
 
@@ -16,20 +15,33 @@ func WriteString(s string, w io.Writer) error {
 }
 
 func Contains(r io.Reader, seq []byte) (bool, error) {
-	data := make([]byte, len(seq))
-	readByte, errRead := r.Read(data)
-	if errRead != nil && errRead != io.EOF {
-		return false, errRead
-	}
-	stringSeq := string(seq)
-	stringRead := string(data[readByte:])
-	if strings.Contains(stringRead, stringSeq) {
-		return true, nil
-	} else {
-		return false, nil
-	}
-}
+	buf := make([]byte, 4094)
+	window := make([]byte, 0, len(seq)*2)
 
+	for {
+		n, err := r.Read(buf)
+		if n > 0 {
+			window = append(window, buf[:n]...)
+
+			if bytes.Contains(window, seq) {
+				return true, nil
+			}
+
+			if len(window) > len(buf) {
+				window = window[len(window)-len(seq):]
+			}
+		}
+
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			return false, err
+		}
+	}
+
+	return false, nil
+}
 func Copy(r io.Reader, w io.Writer, n uint) error {
 	data := make([]byte, n)
 	readByte, errRead := r.Read(data)
