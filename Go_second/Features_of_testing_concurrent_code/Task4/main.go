@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"sort"
+	"strings"
+	"testing"
+)
 
 func AreAnagrams(str1, str2 string) bool {
 	str1 = strings.ToLower(str1)
